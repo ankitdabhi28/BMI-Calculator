@@ -30,6 +30,7 @@ function InputFilds() {
         <div>
           <input
             className="int"
+            min={30}
             type="number"
             onChange={(e) => setHeight(e.target.value)}
             placeholder="Height in Centi-Meter"
@@ -38,6 +39,7 @@ function InputFilds() {
         <div>
           <input
             className="int"
+            min={1}
             type="number"
             onChange={(e) => setWeight(e.target.value)}
             placeholder="Weight in Kilo-Gram"

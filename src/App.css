@@ -3,10 +3,15 @@
 }
 .int{
   margin: 3px;
+  padding: 5px;
   width: 250px;
 }
 .btn{
   margin-top: 10px;
   height: 25px;
   width: 258px;
+}
+
+.print{
+  margin-top: 80px;
 }
