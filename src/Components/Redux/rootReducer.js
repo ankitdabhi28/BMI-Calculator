@@ -1,8 +1,12 @@
-import AnyState from "./ForState/AnyState";
+import Bmi from "./ForState/BmiState";
+import Info from "./ForState/InfoState";
+
+
 
 
 const rootReducer = { 
-AnyState
+Bmi,
+Info
      };
   
   export default rootReducer;

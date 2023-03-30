@@ -1,15 +1,16 @@
 import { Provider } from 'react-redux';
 import './App.css';
-import Com from './Components/Com';
+import InputFilds from './Components/InputFilds';
+import PrintData from './Components/PrintData';
 import { store } from "./Components/Redux/store"
 
 
 function App() {
   return (
     <div className="App">
-      App Component
       <Provider store={store}>
-      <Com/>
+      <InputFilds/>
+      <PrintData/>
       </Provider >
     </div>
   );
