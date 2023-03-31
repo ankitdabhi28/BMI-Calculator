@@ -1,17 +1,26 @@
 .App {
-  text-align: center;
+  margin: 50px 0px 0px 150px;
 }
 .int{
   margin: 3px;
   padding: 5px;
-  width: 250px;
+  width: 360PX;
 }
 .btn{
   margin-top: 10px;
   height: 25px;
-  width: 258px;
+  width: 380PX;
 }
-
 .print{
   margin-top: 80px;
+}
+table {
+  margin-top: 20PX;
+  border: 1.5px dotted;
+  border-radius: 10px;
+  text-align: left;
+}.fst {
+  text-align: left;
+  height: 30px;
+  width: 297px;
 }

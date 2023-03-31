@@ -8,15 +8,17 @@ function PrintData() {
   const info = useSelector((state) => state.Info.Info);
   console.log(info, "Info State");
   return (
-    <div className="print">
-      <h1>
-        <span>BMI :</span>
-        <span>{bmi}</span>
-      </h1>
-      <h2>
-        <span>Category :</span>
-        <span>{info}</span>
-      </h2>
+    <div >
+      <table >
+      <tr> 
+        <td> BMI : </td>
+        <td className="fst">{bmi}</td>
+      </tr>
+      <tr>
+        <td> Category : </td>
+        <td className="fst">{info}</td>
+      </tr>
+    </table>
     </div>
   );
 }

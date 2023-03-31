@@ -16,7 +16,7 @@ function InputFilds() {
       dispatch(setInfo("Under Weight"));
     } else if (val > 18.5 && val <= 24.9) {
       dispatch(setInfo("Healthy"));
-    } else if (val > 24.9 && val < 30) {
+    } else if (val > 24.9 && val < 30) {                                                      
       dispatch(setInfo("Overweight"));
     } else {
       dispatch(setInfo("Obese"));
