@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import { setBmi } from "./Redux/ForState/BmiState";
+import { setHeight } from "./Redux/ForState/HeightState";
 import { setInfo } from "./Redux/ForState/InfoState";
+import { setWeight } from "./Redux/ForState/WeightState";
 import { dispatch } from "./Redux/store";
 
 function InputFilds() {
-  const [height, setHeight] = useState();
-  const [weight, setWeight] = useState();
+
+  const height = useSelector((state) => state.Height.Height);
+  console.log(height, "height State");
+
+  const weight = useSelector((state) => state.Weight.Weight);
+  console.log(weight, "weight State");
 
   const handleBmi = () => {
     let val = (
@@ -32,7 +39,7 @@ function InputFilds() {
             className="int"
             min={30}
             type="number"
-            onChange={(e) => setHeight(e.target.value)}
+            onChange={(e) => dispatch(setHeight(e.target.value))}
             placeholder="Height in Centi-Meter"
           />
         </div>
@@ -41,7 +48,7 @@ function InputFilds() {
             className="int"
             min={1}
             type="number"
-            onChange={(e) => setWeight(e.target.value)}
+            onChange={(e) => dispatch(setWeight(e.target.value))}
             placeholder="Weight in Kilo-Gram"
           />
         </div>
