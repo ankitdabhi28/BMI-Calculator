@@ -29,24 +29,29 @@ function InputFilds() {
     }
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  }
+
   return (
     <div className="container " >
-      {/* <div className="row"> */}
       <div>
         <h1 className="mt-3 text-decoration-underline text-success">BMI Calculator</h1>
       </div>
-      <div className="mt-4">
+      <form onSubmit={handleSubmit} class="row g-3 needs-validation" >
+      <div className="mt-4 needs-validation">
         <div className="row ">
           <div className="col-12  col-md-6 ">
             <div className="form-floating ">
               <input
                 className="form-control shadow"
+                required
                 min={30}
                 type="number"
                 onChange={(e) => dispatch(setHeight(e.target.value))}
                 placeholder="Height in Centi-Meter"
               />
-              <label className="fw-lighter" for="floatingInput">Height in Centi-Meter</label>
+              <label className="fw-lighter form-label">Height in Centi-Meter</label>
             </div>
           </div>
 
@@ -54,6 +59,8 @@ function InputFilds() {
             <div className="form-floating  ">
               <input
                 className="form-control shadow "
+                required
+
                 min={1}
                 type="number"
                 onChange={(e) => dispatch(setWeight(e.target.value))}
@@ -65,11 +72,14 @@ function InputFilds() {
         </div>
 
         <div className="d-grid col-4 mt-4 mx-auto">
-          <button className="btn btn-outline-primary shadow" onClick={handleBmi}>
+          <button className="btn btn-outline-primary shadow" type="submit" onClick={handleBmi}>
             Calculate
           </button>
         </div>
       </div>
+
+ 
+      </form>
     </div>
     // </div>
   );
