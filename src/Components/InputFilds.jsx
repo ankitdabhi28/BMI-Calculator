@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 // import { setBmi } from "./Redux/ForState/BmiState";
-import { setHeight,setBmi ,setWeight,setInfo } from "./Redux/ForState/HeightState";
+// eslint-disable-next-line
+import { setHeight,setBmi ,setWeight,setInfo  } from "./Redux/ForState/HeightState";
 // import { setInfo } from "./Redux/ForState/InfoState";
-// import { setWeight } from "./Redux/ForState/WeightState";
+import { setDataPrint } from "./Redux/ForState/DataPrintState";
 import { dispatch } from "./Redux/store";
 
 function InputFilds() {
@@ -13,38 +14,20 @@ function InputFilds() {
   const weight = useSelector((state) => state.Height.Weight);
   const BMI = useSelector((state) => state.Height.Bmi);
   const INFO = useSelector((state) => state.Height.Info);
+  const DataPrint = useSelector((state) => state.DataPrint.DataPrint);
+
   
-  
-  // console.log(weight, "weight State");
-  // console.log(height, "height State");
+  console.log(DataPrint, "DataPrint State");
   console.log(BMI, "BMI State");
   console.log(INFO, "Info State");
   
-  const [ForArr, setForArr] = useState({
-      BMI:BMI , INFO:INFO
-  });
+  const [ForArr, setForArr] = useState([]);
   console.log(ForArr, "ForArr");
 
-  // eslint-disable-next-line
-  let b=BMI , i=INFO ;
-
   const handlePrint = () => {
-
-    // b = e.target.value
-    // b = ForArr.BMI
-    // i = ForArr.INFO
-
-    // console.log(b ,i , "b & i Value");
-
-    // setForArr( ForArr =>({...ForArr,BMI, INFO}) );
-    // setForArr({...ForArr,BMI, INFO});
-    setForArr({...ForArr,BMI:BMI, INFO:INFO});
+    setForArr([...ForArr, {height ,weight ,BMI ,INFO }]);
+    dispatch(setDataPrint(ForArr))
   };
-
-  // const handlePrint = useCallback(() => {
-  //   setForArr({...ForArr,BMI:BMI, INFO:INFO});
-  // },[ ])
-
 
   const handleBmi = () => {
     let val = (
@@ -60,8 +43,7 @@ function InputFilds() {
     } else {
       dispatch(setInfo("Obese"));
     }
-
-    // setForArr({...ForArr,BMI, INFO});
+    // setForArr([...ForArr, {height ,weight ,BMI ,INFO }])
 
   };
 
@@ -75,11 +57,13 @@ function InputFilds() {
         <h1 className="mt-3 text-decoration-underline text-success">
           BMI Calculator
         </h1>
+
       </div>
       <form onSubmit={handleSubmit} className="row g-3 needs-validation">
         <div className="mt-4 needs-validation">
           <div className="row ">
             <div className="col-12  col-md-6 ">
+
               <div className="form-floating ">
                 <input
                   className="form-control shadow"
@@ -101,6 +85,7 @@ function InputFilds() {
                   className="form-control shadow "
                   required
                   min={1}
+
                   type="number"
                   onChange={(e) => dispatch(setWeight(e.target.value))}
                   placeholder="Weight in Kilo-Gram"
@@ -126,11 +111,19 @@ function InputFilds() {
                 <button
                   className="btn btn-outline-primary  mt-4 shadow"
                   type="submit"
-                  onClick={handlePrint}
+                  onClick={ handlePrint }
                 >
                   Print Data
                 </button>
               </div>
+              {/* <div className="col-2">
+                <button
+                  className="btn btn-outline-primary  mt-4 shadow"
+                  onClick={ ()=> dispatch(setDataPrint(ForArr))}
+                >
+                  Print Data
+                </button>
+              </div> */}
             </div>
           </div>
         </div>
