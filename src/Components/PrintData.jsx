@@ -2,11 +2,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 function PrintData() {
-  const bmi = useSelector((state) => state.Bmi.Bmi);
-  const info = useSelector((state) => state.Info.Info);
+  const bmi = useSelector((state) => state.Height.Bmi);
+  const info = useSelector((state) => state.Height.Info);
 
-  console.log(bmi, "BMI State");
-  console.log(info, "Info State");
+  // console.log(bmi, "BMI State");
+  // console.log(info, "Info State");
 
   return (
     <div className="container mt-5 ">
