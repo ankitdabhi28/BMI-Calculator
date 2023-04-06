@@ -9,6 +9,7 @@ export const DataPrint = createSlice({
   reducers: {
     setDataPrint: (state, action) => {
       state.DataPrint = action.payload
+        //  state.DataPrint= [...state.DataPrint, action.payload];
     },
   },
 });

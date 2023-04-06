@@ -12,7 +12,6 @@ export const Height = createSlice({
   reducers: {
     setHeight: (state, action) => {
       state.Height = action.payload
-  
     },
     setBmi: (state, action) => {
       state.Bmi = action.payload

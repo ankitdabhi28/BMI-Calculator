@@ -12,12 +12,12 @@ function InputFilds() {
   const BMI = useSelector((state) => state.Height.Bmi);
   const INFO = useSelector((state) => state.Height.Info);
   const DataPrint = useSelector((state) => state.DataPrint.DataPrint);
-  const d = useSelector((state) => state.Height)
+  const AllOverData = useSelector((state) => state.Height)
   
   // const b = useSelector((state) => state.DataPrint.DataPrint.Info);
-  console.log("Hight under Info State",d );
+  console.log("AllOverData State",AllOverData );
   
-  // console.log( "DataPrint State",DataPrint); 
+  console.log( "DataPrint State",DataPrint); 
   console.log("BMI State",BMI);
   console.log( "Info State", INFO);
   
@@ -44,7 +44,8 @@ function InputFilds() {
     } else {
       dispatch(setInfo("Obese"));
     }
-    // setForArr([...ForArr, {height ,weight ,BMI ,INFO }])
+    // dispatch(setDataPrint([...DataPrint,AllOverData]))
+    // dispatch(setDataPrint(AllOverData));
 
   };
 
@@ -108,15 +109,15 @@ function InputFilds() {
                   Calculate
                 </button>
               </div>
-              {/* <div className="col-2">
+              <div className="col-2">
                 <button
                   className="btn btn-outline-primary  mt-4 shadow"
                   type="submit"
-                  onClick={ handlePrint }
+                  onClick={ ()=> dispatch(setDataPrint([...DataPrint,AllOverData])) }
                 >
                 Set IN DataPrint reducer
                 </button>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
