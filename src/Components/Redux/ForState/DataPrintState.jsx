@@ -8,14 +8,10 @@ export const DataPrint = createSlice({
   },
   reducers: {
     setDataPrint: (state, action) => {
-      state.Info = action.payload
-    //   state.Info= [...state.DataPrint, action.payload];
+      state.DataPrint = action.payload
     },
-
   },
 });
 
 export const { setDataPrint } = DataPrint.actions;
-// , clear 
-
 export default DataPrint.reducer;

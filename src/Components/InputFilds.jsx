@@ -1,9 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-// import { setBmi } from "./Redux/ForState/BmiState";
-// eslint-disable-next-line
 import { setHeight,setBmi ,setWeight,setInfo  } from "./Redux/ForState/HeightState";
-// import { setInfo } from "./Redux/ForState/InfoState";
 import { setDataPrint } from "./Redux/ForState/DataPrintState";
 import { dispatch } from "./Redux/store";
 
@@ -15,19 +12,23 @@ function InputFilds() {
   const BMI = useSelector((state) => state.Height.Bmi);
   const INFO = useSelector((state) => state.Height.Info);
   const DataPrint = useSelector((state) => state.DataPrint.DataPrint);
-
+  const d = useSelector((state) => state.Height)
   
-  console.log(DataPrint, "DataPrint State");
-  console.log(BMI, "BMI State");
-  console.log(INFO, "Info State");
+  // const b = useSelector((state) => state.DataPrint.DataPrint.Info);
+  console.log("Hight under Info State",d );
   
-  const [ForArr, setForArr] = useState([]);
-  console.log(ForArr, "ForArr");
+  // console.log( "DataPrint State",DataPrint); 
+  console.log("BMI State",BMI);
+  console.log( "Info State", INFO);
+  
+  // const [ForArr, setForArr] = useState([]);
+  // console.log("ForArr" ,ForArr);
 
-  const handlePrint = () => {
-    setForArr([...ForArr, {height ,weight ,BMI ,INFO }]);
-    dispatch(setDataPrint(ForArr))
-  };
+  // const handlePrint = () => {
+  //   setForArr([...ForArr, d]);
+  //   // setForArr([...ForArr, {height ,weight ,BMI ,INFO }]);
+  //   dispatch(setDataPrint(ForArr))
+  // };
 
   const handleBmi = () => {
     let val = (
@@ -107,21 +108,13 @@ function InputFilds() {
                   Calculate
                 </button>
               </div>
-              <div className="col-2">
+              {/* <div className="col-2">
                 <button
                   className="btn btn-outline-primary  mt-4 shadow"
                   type="submit"
                   onClick={ handlePrint }
                 >
-                  Print Data
-                </button>
-              </div>
-              {/* <div className="col-2">
-                <button
-                  className="btn btn-outline-primary  mt-4 shadow"
-                  onClick={ ()=> dispatch(setDataPrint(ForArr))}
-                >
-                  Print Data
+                Set IN DataPrint reducer
                 </button>
               </div> */}
             </div>
@@ -129,7 +122,6 @@ function InputFilds() {
         </div>
       </form>
     </div>
-    // </div>
   );
 }
 
