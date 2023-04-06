@@ -115,7 +115,7 @@ function InputFilds() {
                   type="submit"
                   onClick={ ()=> dispatch(setDataPrint([...DataPrint,AllOverData])) }
                 >
-                Set IN DataPrint reducer
+                DataPrint
                 </button>
               </div>
             </div>
